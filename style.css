@@ -7,7 +7,7 @@ body {
 
 .container {
 
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -32,7 +32,7 @@ h1 {
 }
 
 .forecast-item p {
-    margin: 5px 0;
+    margin: 36px 0;
 }
 
 .forecast-item p:first-child {
@@ -40,7 +40,7 @@ h1 {
 }
 
 .forecast-item p.temperature {
-    font-size: 18px;
+    font-size: 36px;
 }
 
 .forecast-item p.description {

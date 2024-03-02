@@ -1,9 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: lightcyan;
 }
 .container {
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -30,7 +30,7 @@ h1 {
 }
 
 .forecast-item p.temperature {
-    font-size: 18px;
+    font-size: 36px;
 }
 
 .forecast-item p.description {

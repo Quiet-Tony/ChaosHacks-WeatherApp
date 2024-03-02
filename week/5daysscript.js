@@ -36,25 +36,15 @@ function fetchWeatherForecast(city, units) {
             const forecastTitle = document.createElement('h2');
             forecastTitle.textContent = `5-Day Weather Forecast for ${city} (${getUnitLabel(units)})`;
             forecastDataElement.appendChild(forecastTitle);
+            
+            let counter = 0; // Counter to track the number of data points processed
 
             forecastList.forEach(forecast => {
                 const dateTime = forecast.dt_txt; // Date and time of the forecast
                 const temperature = forecast.main.temp; // Temperature
                 const description = forecast.weather[0].description; // Weather description
+                const iconCode = forecast.weather[0].icon; // Weather icon code
 
-                let currentDate = '';
-
-                forecastList.forEach(forecast => {
-                    const dateTime = forecast.dt_txt; // Date and time of the forecast
-                    const date = dateTime.split(' ')[0]; // Extract date from datetime
-    
-                    // If the date has changed, add a visual break
-                    if (date !== currentDate) {
-                        const dateBreak = document.createElement('hr');
-                        forecastDataElement.appendChild(dateBreak);
-                        currentDate = date; // Update current date
-                    }
-                });
                 // Create a container for the forecast item
                 const forecastItem = document.createElement('div');
                 forecastItem.classList.add('forecast-item');
@@ -68,14 +58,25 @@ function fetchWeatherForecast(city, units) {
 
                 const descriptionElement = document.createElement('p');
                 descriptionElement.textContent = `Description: ${description}`;
+                 // Create an img element for the weather icon
+                 const iconElement = document.createElement('img');
+                 iconElement.src = `https://openweathermap.org/img/wn/${iconCode}.png`;
 
                 // Append forecast data elements to the forecast item container
                 forecastItem.appendChild(dateTimeElement);
                 forecastItem.appendChild(temperatureElement);
                 forecastItem.appendChild(descriptionElement);
-
+                forecastItem.appendChild(iconElement);
                 // Append forecast item container to the forecast data container
                 forecastDataElement.appendChild(forecastItem);
+                counter++; // Increment counter
+
+                // Add line break after every 8 data points
+                if (counter % 8 === 0) {
+                     for (let i = 0; i < 3; i++) {
+                        forecastDataElement.appendChild(document.createElement('br'));
+                    }
+                }
             });
         })
         .catch(error => {
