@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" defer src="./script.js"></script>
+    <title>Chaotic Weather</title>
+</head>
+
+<body>
+    test
+</body>
+<!-- Component that will contain the weather details for a day -->
+<template id="weather_day_view">
+    <div class="card">
+        <div class="row">
+            <div id="weather_box">
+                <img id="weather_image">
+            </div>
+            <div class="heading" id="day"></div>
+        </div>
+        <div class="row">
+            <div id="temperature"></div>
+            <div>Current</div>
+        </div>
+    </div>
+</template>
+<div>
+    <p>Weather data provided by OpenWeather</p>
+    <a href="https://openweathermap.org/">OpenWeather</a>
+    <img src="https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png">
+
+</div>
+
+</html>

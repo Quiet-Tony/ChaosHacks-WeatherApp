@@ -1,0 +1,25 @@
+.heading {
+    font-size: 1.5rem;
+}
+.card {
+    display: flex;
+    background-color: skyblue;
+    font-size: 1.25rem;
+    flex-direction: column;
+    width: fit-content;
+    align-content: center;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#weather_image {
+    aspect-ratio: 1/1;
+    width: 2rem;
+    height: 2rem;
+}
