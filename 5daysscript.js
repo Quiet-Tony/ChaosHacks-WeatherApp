@@ -36,13 +36,32 @@ function fetchWeatherForecast(city, units) {
             const forecastTitle = document.createElement('h2');
             forecastTitle.textContent = `5-Day Weather Forecast for ${city} (${getUnitLabel(units)})`;
             forecastDataElement.appendChild(forecastTitle);
+
             forecastList.forEach(forecast => {
                 const dateTime = forecast.dt_txt; // Date and time of the forecast
                 const temperature = forecast.main.temp; // Temperature
                 const description = forecast.weather[0].description; // Weather description
 
-                const forecastItem = document.createElement('p');
-                forecastItem.textContent = `${dateTime}: Temperature ${temperature}°${getUnitSymbol(units)}, ${description}`;
+                // Create a container for the forecast item
+                const forecastItem = document.createElement('div');
+                forecastItem.classList.add('forecast-item');
+
+                // Create HTML elements for displaying forecast data
+                const dateTimeElement = document.createElement('p');
+                dateTimeElement.textContent = `Date and Time: ${dateTime}`;
+
+                const temperatureElement = document.createElement('p');
+                temperatureElement.textContent = `Temperature: ${temperature}${getUnitSymbol(units)}`;
+
+                const descriptionElement = document.createElement('p');
+                descriptionElement.textContent = `Description: ${description}`;
+
+                // Append forecast data elements to the forecast item container
+                forecastItem.appendChild(dateTimeElement);
+                forecastItem.appendChild(temperatureElement);
+                forecastItem.appendChild(descriptionElement);
+
+                // Append forecast item container to the forecast data container
                 forecastDataElement.appendChild(forecastItem);
             });
         })
@@ -50,6 +69,7 @@ function fetchWeatherForecast(city, units) {
             console.log('Error fetching weather forecast:', error);
         });
 }
+
 // Function to get label for the unit
 function getUnitLabel(units) {
     switch(units) {
@@ -63,19 +83,22 @@ function getUnitLabel(units) {
             return '';
     }
 }
+
 // Function to get symbol for the unit
 function getUnitSymbol(units) {
     switch(units) {
         case 'metric':
-            return 'C';
+            return '°C';
         case 'imperial':
-            return 'F';
+            return '°F';
         case 'standard':
             return 'K';
         default:
             return '';
     }
 }
+
+// Get a random city and unit, and fetch 5-day weather forecast for it
 const randomCity = getRandomCity();
 const randomUnit = getRandomUnit();
 fetchWeatherForecast(randomCity, randomUnit);

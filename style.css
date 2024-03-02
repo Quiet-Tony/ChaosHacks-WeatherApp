@@ -9,7 +9,6 @@ body {
 
     max-width: 600px;
     margin: 0 auto;
-    text-align: center;
     padding: 20px;
 }
 .weather-info {
@@ -18,12 +17,32 @@ body {
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
 }
 
 h1 {
-    color: #333;
+    text-align: center;
 }
 
-p {
-    margin: 10px 0;
+.forecast-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.forecast-item p {
+    margin: 5px 0;
+}
+
+.forecast-item p:first-child {
+    font-weight: bold;
+}
+
+.forecast-item p.temperature {
+    font-size: 18px;
+}
+
+.forecast-item p.description {
+    color: #555;
 }
