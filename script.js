@@ -9,11 +9,17 @@ const cities = [
 function getRandomCity() {
     return cities[Math.floor(Math.random() * cities.length)];
 }
+const units = [
+    'metric', 'imperial', 'standard'
+]
+function getRandomUnit() {
+    return units[Math.floor(Math.random() * units.length)]
+}
 
 // Function to fetch weather data for a city using the API
-function fetchWeatherData(city) {
+function fetchWeatherData(city, unit) {
     const apiKey = '70b5dd97135e7c9b4b0bb199bfe72f87'; // Replace with your API key
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
 
     fetch(apiUrl)
     .then(response => response.json())
@@ -23,7 +29,14 @@ function fetchWeatherData(city) {
         const description = data.weather[0].description;
 
         document.getElementById('location').innerText = `Location: ${location}`;
-        document.getElementById('temperature').innerText = `Temperature: ${temperature}°C`;
+        if (unit == units[0]) {
+            document.getElementById('temperature').innerText = `Temperature: ${temperature}°C`;
+        } else if (unit == units[1]) {
+            document.getElementById('temperature').innerText = `Temperature: ${temperature}°F`;
+        } else {
+            document.getElementById('temperature').innerText = `Temperature: ${temperature}K`;
+        }
+        
         document.getElementById('description').innerText = `Description: ${description}`;
     })
     .catch(error => {
@@ -33,4 +46,5 @@ function fetchWeatherData(city) {
 
 // Get a random city and fetch weather data for it
 const randomCity = getRandomCity();
-fetchWeatherData(randomCity);
+const randomUnit = getRandomUnit();
+fetchWeatherData(randomCity, randomUnit);
