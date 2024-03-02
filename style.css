@@ -3,13 +3,17 @@ body {
     background-color: #f0f0f0;
 }
 
+
+
 .container {
+
     max-width: 600px;
     margin: 0 auto;
     text-align: center;
     padding: 20px;
 }
 .weather-info {
+    border: 1pt solid black;
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;
