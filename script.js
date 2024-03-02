@@ -1,6 +1,7 @@
 window.addEventListener('load', () => {
-    const apiKey = 'YOUR_API_KEY';
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`;
+    const apiKey = '70b5dd97135e7c9b4b0bb199bfe72f87';
+    const city = 'London'; // Replace 'London' with the desired city (make random list?)
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     fetch(apiUrl)
         .then(response => response.json())
