@@ -13,24 +13,32 @@
     test
 
 <!-- Component that will contain the weather details for a day -->
-    <template id="weather_day_view">
-        <div class="card">
-            <div class="row">
-                <div id="weather_box">
-                    <img id="weather_image">
-                </div>
-                <div class="heading" id="day"></div>
-            </div>
-            <div class="row">
-                <div id="temperature"></div>
-                <div>Current</div>
-            </div>
+<template id="weather_day_view">
+    <div class="card">
+        <div class="row">
+            <h2 id="location"></h2>
         </div>
-    </template>
-    <div>
-        <p>Weather data provided by OpenWeather</p>
-        <a href="https://openweathermap.org/">OpenWeather</a>
-        <img src="https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png">
+        <div class="row">
+            <div id="weather_box">
+                <img id="weather_image">
+            </div>
+            <div class="heading" id="day"></div>
+        </div>
+        <div class="row">
+            <div id="temperature"></div>
+            <div>Current</div>
+        </div>
+        <div class="desc-box">
+            <h4>Desc:</h4>
+            <p id="d"></p>
+        </div>
     </div>
-</body>
+</template>
+<div>
+    <p>Weather data provided by OpenWeather</p>
+    <a href="https://openweathermap.org/">OpenWeather</a>
+    <img src="https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png">
+
+</div>
+
 </html>
