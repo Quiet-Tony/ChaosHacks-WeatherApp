@@ -2,7 +2,10 @@
 // List of 10 cities
 const cities = [
     'Tokyo', 'Delhi', 'Shanghai', 'São Paulo', 'Mumbai',
-    'Mexico City', 'Beijing', 'Vancouver', 'Cairo', 'New York City'
+    'Mexico City', 'Beijing', 'Osaka', 'Cairo', 'New York City',
+    'Dhaka', 'Karachi', 'Buenos Aires', 'Istanbul', 'Kolkata',
+    'Lagos', 'Kinshasa', 'Manila', 'Rio de Janeiro', 'Tianjin',
+    'Guangzhou', 'London', 'Lahore', 'Bangkok', 'Shenzhen'
 ];
 
 // Function to randomly select one city from the list
