@@ -42,6 +42,19 @@ function fetchWeatherForecast(city, units) {
                 const temperature = forecast.main.temp; // Temperature
                 const description = forecast.weather[0].description; // Weather description
 
+                let currentDate = '';
+
+                forecastList.forEach(forecast => {
+                    const dateTime = forecast.dt_txt; // Date and time of the forecast
+                    const date = dateTime.split(' ')[0]; // Extract date from datetime
+    
+                    // If the date has changed, add a visual break
+                    if (date !== currentDate) {
+                        const dateBreak = document.createElement('hr');
+                        forecastDataElement.appendChild(dateBreak);
+                        currentDate = date; // Update current date
+                    }
+                });
                 // Create a container for the forecast item
                 const forecastItem = document.createElement('div');
                 forecastItem.classList.add('forecast-item');

@@ -1,5 +1,5 @@
 
-// List of 10 cities
+// List of 25 cities
 const cities = [
     'Tokyo', 'Delhi', 'Shanghai', 'São Paulo', 'Mumbai',
     'Mexico City', 'Beijing', 'Osaka', 'Cairo', 'New York City',
