@@ -7,11 +7,13 @@ if ("content" in document.createElement("template")) {
     const body = document.querySelector("body");
 
 
-    function AppendCardToBody(day, temperature, isSunny) {
+    function AppendCardToBody(day, temperature, isSunny, location, description) {
         const template = document.querySelector("#weather_day_view");
         const clone = template.content.cloneNode(true);
         clone.querySelector("#day").textContent = day;
         clone.querySelector("#temperature").textContent = temperature;
+        clone.querySelector("#location").textContent = location;
+        clone.querySelector("#d").textContent = description;
         if (isSunny) {
             clone.querySelector("#weather_image").setAttribute("src", "../sun.svg")
         }
@@ -20,23 +22,8 @@ if ("content" in document.createElement("template")) {
         }
         body.appendChild(clone);
     }
-    AppendCardToBody("Oneday", "28°C", true)
-    AppendCardToBody("Twoday", "11°C", false)
-    // Clone the new row and insert it into the table
-    // let row = clone.querySelectorAll(".row");
-    // row[0].textContent = "1235646565";
-    // row[1].textContent = "Stuff";
-
-    // body.appendChild(clone);
-
-    // // Clone the new row and insert it into the table
-    // const clone2 = template.content.cloneNode(true);
-    // row = clone2.querySelectorAll(".row");
-    // row[0].textContent = "0384928528";
-    // row[1].textContent = "Acme Kidney Beans 2";
-
-    // body.appendChild(clone2);
+    AppendCardToBody("Oneday", "28°C", true, "Vancouver", "Broken Clouds");
+    AppendCardToBody("Twoday", "-5°C", false, "TurtleTown", "Cold af");
 } else {
-    // Find another way to add the rows to the table because
-    // the HTML template element is not supported.
+   console.error("Templates not Supported")
 }
