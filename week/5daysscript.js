@@ -18,6 +18,11 @@ function getRandomUnit() {
     return units[Math.floor(Math.random() * units.length)];
 }
 
+function getMonthString(month) {
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August",
+    "September", "October", "November", "December"];
+    return months[month - 1];
+}
 // Function to fetch 5-day weather forecast data for a city using the API
 function fetchWeatherForecast(city, units) {
     const apiKey = '70b5dd97135e7c9b4b0bb199bfe72f87'; // Replace with your API key
@@ -41,17 +46,46 @@ function fetchWeatherForecast(city, units) {
 
             forecastList.forEach(forecast => {
                 const dateTime = forecast.dt_txt; // Date and time of the forecast
+                const date = dateTime.substring(0,10);
+                let month = date.substring(5,7);
+                const monthStr = getMonthString(month);
+                const fullDate = monthStr + " " + date.substring(8,10) + ", " + date.substring(0,4);
+                // Add line break after every 8 data points
+                const dateShow = document.createElement('h');
+                dateShow.textContent = fullDate;
+                if (counter == 0 || counter % 8 === 0) {
+                        
+                    for (let i = 0; i < 3; i++) {
+                       forecastDataElement.appendChild(document.createElement('br'));
+                       
+                   }
+                   forecastDataElement.appendChild(dateShow);
+                   forecastDataElement.appendChild(document.createElement('br'));
+               }
+                
+                
+                
+                
                 const temperature = forecast.main.temp; // Temperature
                 const description = forecast.weather[0].description; // Weather description
                 const iconCode = forecast.weather[0].icon; // Weather icon code
+                
+                
+              //  const date = dateTime.toLocaleDateString(); // Extract date part only
 
                 // Create a container for the forecast item
                 const forecastItem = document.createElement('div');
                 forecastItem.classList.add('forecast-item');
 
+                // Create HTML element for displaying date
+                
+
                 // Create HTML elements for displaying forecast data
                 const dateTimeElement = document.createElement('p');
                 dateTimeElement.textContent = `Date and Time: ${dateTime}`;
+
+                //const dateElement = document.createElement('p');
+               // dateElement.textContent = `Date: ${date}`;
 
                 const temperatureElement = document.createElement('p');
                 temperatureElement.textContent = `Temperature: ${temperature}${getUnitSymbol(units)}`;
@@ -63,20 +97,19 @@ function fetchWeatherForecast(city, units) {
                  iconElement.src = `https://openweathermap.org/img/wn/${iconCode}.png`;
 
                 // Append forecast data elements to the forecast item container
+                
+                forecastItem.appendChild(iconElement);
                 forecastItem.appendChild(dateTimeElement);
                 forecastItem.appendChild(temperatureElement);
                 forecastItem.appendChild(descriptionElement);
-                forecastItem.appendChild(iconElement);
+
+            
+                //forecastItem.appendChild(dateElement);
                 // Append forecast item container to the forecast data container
                 forecastDataElement.appendChild(forecastItem);
                 counter++; // Increment counter
 
-                // Add line break after every 8 data points
-                if (counter % 8 === 0) {
-                     for (let i = 0; i < 3; i++) {
-                        forecastDataElement.appendChild(document.createElement('br'));
-                    }
-                }
+
             });
         })
         .catch(error => {

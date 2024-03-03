@@ -34,6 +34,9 @@ function fetchWeatherData(city, unit) {
         const location = data.name;
         const temperature = data.main.temp;
         const description = data.weather[0].description;
+        const iconCode = data.weather[0].icon;
+        const date = data.dt;
+        const realDate = Date.(date);
 
         document.getElementById('location').innerText = `Location: ${location}`;
         if (unit == units[0]) {
@@ -45,6 +48,8 @@ function fetchWeatherData(city, unit) {
         }
         
         document.getElementById('description').innerText = `Description: ${description}`;
+
+        
     })
     .catch(error => {
         console.log('Error fetching weather data:', error);

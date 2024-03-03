@@ -1,12 +1,14 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: lightcyan;
 }
+
+
+
 .container {
+
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
-    font-family: Arial, sans-serif;
 }
 
 h1 {
@@ -14,6 +16,7 @@ h1 {
 }
 
 .forecast-item {
+    background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
@@ -21,8 +24,7 @@ h1 {
 }
 
 .forecast-item p {
-    
-    margin: 5px 0;
+    margin: 36px 0;
 }
 
 .forecast-item p:first-child {
@@ -34,5 +36,5 @@ h1 {
 }
 
 .forecast-item p.description {
-    color: #555;
+    color: #c61919;
 }

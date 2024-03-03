@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+
 }
 
 
@@ -44,5 +44,7 @@ h1 {
 }
 
 .forecast-item p.description {
-    color: #555;
+    color: #555; 
+    
 }
+
