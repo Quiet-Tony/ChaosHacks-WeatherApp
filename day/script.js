@@ -36,7 +36,11 @@ function fetchWeatherData(city, unit) {
         const description = data.weather[0].description;
         const iconCode = data.weather[0].icon;
         const date = data.dt;
-        const realDate = Date.(date);
+        const realDate = new Date(date * 1000);
+        const dateStr = realDate.toDateString();
+        
+
+        document.getElementById('dateShow').innerText = dateStr;
 
         document.getElementById('location').innerText = `Location: ${location}`;
         if (unit == units[0]) {

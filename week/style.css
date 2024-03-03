@@ -1,11 +1,11 @@
 body {
     font-family: Arial, sans-serif;
+    font-size: 40px;
 }
 
 
 
 .container {
-
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
@@ -16,15 +16,16 @@ h1 {
 }
 
 .forecast-item {
+    font-size: 35px;
     background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 10px;
-    margin-bottom: 10px;
+
 }
 
 .forecast-item p {
-    margin: 36px 0;
+    margin: 10px 0;
 }
 
 .forecast-item p:first-child {
@@ -37,4 +38,10 @@ h1 {
 
 .forecast-item p.description {
     color: #c61919;
+}
+
+
+.weather-icon {
+    width: 150px; /* Adjust the width of the weather icon */
+    height: auto; /* Automatically adjust the height based on the width */
 }
